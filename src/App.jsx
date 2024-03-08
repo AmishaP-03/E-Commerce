@@ -67,13 +67,22 @@ function App() {
     });
   }
 
+  const contextValue = {
+    items: shoppingCart.items,
+    onAddItemToCart: handleAddItemToCart
+  }
+
   return (
     // Wrapping the concerned components (which are making use of the cart state) with CartContext
     // CartContext.Provider -> React component which provides the context
 
-    /** Value is a mandatory prop on Provider component. It is used to set a default value and is used only if a comp that was
-        not wrapped by the Provider comp tries to access the context value **/
-    <CartContext.Provider value={{items: []}}>
+    /** Value is a mandatory prop on Provider component. 
+     *  1. It is used to set a default value and is used only if a comp that was
+        not wrapped by the Provider comp tries to access the context value 
+
+        2. It is used to link the state's properities to the context
+    **/
+    <CartContext.Provider value={contextValue}>
       <Header
         cart={shoppingCart}
         onUpdateCartItemQuantity={handleUpdateCartItemQuantity}
@@ -81,7 +90,7 @@ function App() {
       <Shop>
         {DUMMY_PRODUCTS.map((product) => (
           <li key={product.id}>
-            <Product {...product} onAddToCart={handleAddItemToCart} />
+            <Product {...product} />
           </li>
         ))}
       </Shop>
