@@ -1,5 +1,5 @@
 # E-Commerce
-A React based e-commerce application to explore solutions of prop drilling.
+A React based e-commerce application (with a basic feature of adding/removing products from cart) to explore solutions of prop drilling.
 
 Ways to get rid of prop drilling:
 
