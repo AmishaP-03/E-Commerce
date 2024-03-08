@@ -1,5 +1,6 @@
 import { useState } from 'react';
 
+import { CartContext } from './store/shopping-cart-context.jsx';
 import Header from './components/Header.jsx';
 import Product from './components/Product.jsx';
 import Shop from './components/Shop.jsx';
@@ -67,7 +68,12 @@ function App() {
   }
 
   return (
-    <>
+    // Wrapping the concerned components (which are making use of the cart state) with CartContext
+    // CartContext.Provider -> React component which provides the context
+
+    /** Value is a mandatory prop on Provider component. It is used to set a default value and is used only if a comp that was
+        not wrapped by the Provider comp tries to access the context value **/
+    <CartContext.Provider value={{items: []}}>
       <Header
         cart={shoppingCart}
         onUpdateCartItemQuantity={handleUpdateCartItemQuantity}
@@ -79,7 +85,7 @@ function App() {
           </li>
         ))}
       </Shop>
-    </>
+    </CartContext.Provider>
   );
 }
 
