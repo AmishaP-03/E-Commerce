@@ -69,7 +69,8 @@ function App() {
 
   const contextValue = {
     items: shoppingCart.items,
-    onAddItemToCart: handleAddItemToCart
+    onAddItemToCart: handleAddItemToCart,
+    onUpdateCartItemQuantity: handleUpdateCartItemQuantity
   }
 
   return (
@@ -83,10 +84,7 @@ function App() {
         2. It is used to link the state's properities to the context
     **/
     <CartContext.Provider value={contextValue}>
-      <Header
-        cart={shoppingCart}
-        onUpdateCartItemQuantity={handleUpdateCartItemQuantity}
-      />
+      <Header />
       <Shop>
         {DUMMY_PRODUCTS.map((product) => (
           <li key={product.id}>

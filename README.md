@@ -1,5 +1,5 @@
 # E-Commerce
-A React based e-commerce application to explore solutions of prop drilling
+A React based e-commerce application to explore solutions of prop drilling.
 
 Ways to get rid of prop drilling:
 
@@ -10,6 +10,5 @@ Ways to get rid of prop drilling:
 
 2. Context API
 
-- solves the problem of prop drilling end to end
-- create context values which are linked to state and can be used by multiple components
-
+- solves the problem of prop drilling end to end.
+- create context values which are linked to state and can be used by multiple components.

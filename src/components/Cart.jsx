@@ -3,7 +3,7 @@ import { useContext } from "react";
 // Import CartContext in the consumer components as well
 import { CartContext } from "../store/shopping-cart-context";
 
-export default function Cart({ onUpdateItemQuantity }) {
+export default function Cart() {
   // Pass the required context to useContext function.
   const cartContext = useContext(CartContext);
 
@@ -28,11 +28,11 @@ export default function Cart({ onUpdateItemQuantity }) {
                   <span> ({formattedPrice})</span>
                 </div>
                 <div className="cart-item-actions">
-                  <button onClick={() => onUpdateItemQuantity(item.id, -1)}>
+                  <button onClick={() => cartContext.onUpdateCartItemQuantity(item.id, -1)}>
                     -
                   </button>
                   <span>{item.quantity}</span>
-                  <button onClick={() => onUpdateItemQuantity(item.id, 1)}>
+                  <button onClick={() => cartContext.onUpdateCartItemQuantity(item.id, 1)}>
                     +
                   </button>
                 </div>
